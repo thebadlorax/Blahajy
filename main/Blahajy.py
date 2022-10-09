@@ -26,6 +26,11 @@ def bold(text):
     return str("\033[1m" + text + "\033[0m")
 
 
+# Stolen Functions
+def wait(timetowait):
+    time.sleep(timetowait)
+
+
 # Zonemap Functions
 def zonename():
     return zonemap.zonemap[str(x) + str(y)]["ZONENAME"]
@@ -91,6 +96,13 @@ def update():
 
     if not narratenow:  # Reset Narrator
         latestupdate = ""
+
+
+# Narrator Functions
+def updatenarrator(text="NULL", mode="change"):
+    global latestnarrator
+    if mode == "change":
+        latestnarrator = text
 
 
 if __name__ == "__main__":
