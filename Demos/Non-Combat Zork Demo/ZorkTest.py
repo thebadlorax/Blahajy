@@ -1,3 +1,4 @@
+import os
 import Blahajy
 
 
@@ -14,6 +15,7 @@ def main():
             main()
         else:
             Blahajy.updatenarrator("Walking that way would be impossible")
+            Blahajy.updatenarrator(mode="narratenowtrue")
             main()
     elif playerinput == 'south':
         if Blahajy.south():
@@ -21,6 +23,7 @@ def main():
             main()
         else:
             Blahajy.updatenarrator("Walking that way would be impossible")
+            Blahajy.updatenarrator(mode="narratenowtrue")
             main()
     elif playerinput == 'east':
         if Blahajy.east():
@@ -28,6 +31,7 @@ def main():
             main()
         else:
             Blahajy.updatenarrator("Walking that way would be impossible")
+            Blahajy.updatenarrator(mode="narratenowtrue")
             main()
     elif playerinput == 'west':
         if Blahajy.west():
@@ -35,7 +39,10 @@ def main():
             main()
         else:
             Blahajy.updatenarrator("Walking that way would be impossible")
+            Blahajy.updatenarrator(mode="narratenowtrue")
             main()
+    elif playerinput == "exit":
+        Blahajy.quitgame()
     else:
         Blahajy.updatenarrator("I do not understand")
         main()

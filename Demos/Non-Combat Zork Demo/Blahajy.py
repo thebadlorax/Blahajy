@@ -65,14 +65,16 @@ def hascombat():
 
 # Coordinate Functions
 def changex(num):
-    global x
+    global x, narratenow
     updatelastcoords()
+    updatenarrator(mode="narratenowfalse")
     x += num
 
 
 def changey(num):
-    global y
+    global y, narratenow
     updatelastcoords()
+    updatenarrator(mode="narratenowfalse")
     y += num
 
 
@@ -87,22 +89,41 @@ def printscenario():
 
 
 def printnarrator():
-    print("\n" + latestnarrator + "\n")
+    print("\n" + updatenarrator(mode="print") + "\n")
+
+
+def printcoords():
+    print(str(x) + str(y))
 
 
 # Game Loop Functions
 def update():
-    global x, y, lastcoords, latestupdate, narratenow
+    global x, y, lastcoords, latestnarrator, narratenow
 
     if not narratenow:  # Reset Narrator
-        latestupdate = ""
+        updatenarrator(mode="clear")
+
+
+def quitgame():
+    clearscreen()
+    os.system("exit")
 
 
 # Narrator Functions
 def updatenarrator(text="NULL", mode="change"):
-    global latestnarrator
+    global latestnarrator, narratenow
     if mode == "change":
         latestnarrator = text
+    elif mode == "clear":
+        latestnarrator = ""
+    elif mode == "coords":
+        latestnarrator = str(str(x) + str(y))
+    elif mode == "print":
+        return latestnarrator
+    elif mode == "narratenowfalse":
+        narratenow = False
+    elif mode == "narratenowtrue":
+        narratenow = True
 
 
 if __name__ == "__main__":

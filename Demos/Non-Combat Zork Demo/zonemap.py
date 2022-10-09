@@ -5,7 +5,7 @@ zonemap = {
         "NORTH": True,
         "SOUTH": False,
         "EAST": False,
-        "WEST": False
+        "WEST": True
     },
     "01": {
         "ZONENAME": "Path to the north",
